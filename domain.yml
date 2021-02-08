@@ -1,0 +1,114 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - feedback_good
+  - feedback_bad
+  - lang_search
+  - bot_challenge
+  - thanks
+  - show_examples
+
+entities:
+  - language
+  # - num_examples
+
+slots:
+  language:
+    type: text
+  # num_examples:
+  #   type: float
+
+
+responses:
+  utter_greet:
+
+  - text: |
+      మీరు ఎలా ఉన్నారు?
+   # How are you?
+
+  - text: |
+      హలో! నేను మీకేం చేయగలను? 
+    # Hello! What can I do for you?
+
+  - text: |
+      నమస్కారమండి
+      
+    # hello man
+
+
+  # utter_did_that_help:
+  # - text: |
+  #     "Did that help you?"
+  # - text: |
+  #     "Is this what you were looking for?"
+  # - text: |
+  #     "Did you get what you needed?"
+
+
+  utter_goodbye:
+  - text: |
+      సెలవు
+    # "Bye"
+  - text: |
+      మీతో మాట్లాడటం చాలా సంతోషంగా ఉంది
+    #  "It was nice talking to you."
+  - text: |
+      మళ్ళీ కలుద్దాం
+    #  "See you again!"
+
+
+  utter_thanks:
+  - text: |
+      నేను సహాయం చేయగలిగినందుకు సంతోషం
+    # Glad that I could be of help!
+  - text: |
+      ధన్యవాదాలు
+    # Thank you!
+  - text: |
+      అనందంగా సాయం చేస్తాం
+    # Happy to help  
+
+  utter_feedback_good:
+  - text: |
+      నేను సహాయం చేయగలిగినందుకు సంతోషం
+    # Glad that I could be of help!
+  - text: |
+      WALS డేటాసెట్ రచయితలకు అన్ని క్రెడిట్స్
+    # All credits to the authors of WALS dataset!
+  - text: |
+      అనందంగా సాయం చేస్తాం
+    # Happy to help 
+
+  utter_feedback_bad:
+  - text: |
+      అది తెలుసుకున్నందుకు క్షమించండి
+    # I'm sorry to know that! 
+  - text: |
+      మరోసారి ప్రయత్నించండి
+    # Try once again maybe!
+  - text: |
+      నా జ్ఞానం పరిమితం
+    # My knowledge is limited at the moment! 
+
+  utter_iamabot:
+  - text: "నేను సిద్ధార్థ్ నిర్మించిన బోట్"
+  # I am a bot, built by Siddharth.
+
+actions:
+- '...'
+- utter_greet
+- utter_goodbye
+- action_lang_search
+- utter_feedback_good
+- utter_feedback_bad
+- utter_iamabot
+- utter_thanks
+- action_show_examples
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

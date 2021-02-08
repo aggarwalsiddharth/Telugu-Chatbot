@@ -1,0 +1,43 @@
+version: "2.0"
+
+rules:
+
+- rule: greet the user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: search a language details based on user query
+  steps:
+  - intent: lang_search
+  - action: action_lang_search
+
+- rule: save feedback and reply to positive feedback
+  steps:
+  - intent: feedback_good
+  - action: utter_feedback_good
+
+- rule: save feedback and reply to negative feedback
+  steps:
+  - intent: feedback_bad
+  - action: utter_feedback_bad
+
+- rule: show examples of the language in context
+  steps:
+  - intent: show_examples
+  - action: action_show_examples
+
+- rule: respond positively when the user says thank you
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#   - intent: bot_challenge
+#   - action: utter_iamabot
