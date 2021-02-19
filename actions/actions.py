@@ -40,8 +40,12 @@ class ActionLanguageSearch(Action):
             #print("entit>0")
             query_lang = entities.pop()
             #print(f'query lang is {query_lang}')
+
             query_lang_en = translator.translate(query_lang, dest='en').text
             query_lang_en = query_lang_en.lower().capitalize()
+            if query_lang == 'తెలుగు':
+            #    print('Hi')
+                query_lang_en = 'Telugu'
             #print(f'in english {query_lang_en}')
 
             
@@ -102,7 +106,7 @@ class ActionShowExamples(Action):
                 if len(ex_list)>0:
                     max_ind = min(3,len(ex_list))
                     for ind,row in ex_list.reset_index(drop=True)[:max_ind].iterrows():
-                        out_text = "ఉదాహరణ %s: %s \n " %(translator.translate(ind+1, dest='te').text,translator.translate(row['Primary_Text'], dest='te').text)
+                        out_text = "ఉదాహరణ %s: %s \n " %(translator.translate(ind+1, dest='te').text,row['Primary_Text'])
                         dispatcher.utter_message(text = out_text)
                 #out_text = "Language %s belongs to the Family %s\n with Genus as %s\n and has ISO code %s" % (out_row["Name"], out_row["Family"], out_row["Genus"], out_row["ISO_codes"])
                 
