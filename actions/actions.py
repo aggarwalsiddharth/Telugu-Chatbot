@@ -46,7 +46,7 @@ class ActionLanguageSearch(Action):
             if query_lang == 'తెలుగు':
             #    print('Hi')
                 query_lang_en = 'Telugu'
-            #print(f'in english {query_lang_en}')
+            print(f'in english {query_lang_en}')
 
             
             out_row = wals_data[wals_data["Name"] == query_lang_en].to_dict("records")
@@ -94,6 +94,9 @@ class ActionShowExamples(Action):
 
             query_lang_en = query_lang_en.lower().capitalize()
             #print(query_lang_en)
+            if query_lang == 'తెలుగు':
+            #    print('Hi')
+                query_lang_en = 'Telugu'
             
             out_row = wals_data[wals_data["Name"] == query_lang_en].to_dict("records")
 
